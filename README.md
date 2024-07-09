@@ -1,7 +1,7 @@
 <div  align=center><img src="./assets/logo.png" width="15%"></div>
 
 
-## <p align=center>[ECCV 2024]Sparse Beats Dense: Rethinking Supervision in Radar-Camera Depth Completion</p>
+## <p align=center>[ECCV 2024] Sparse Beats Dense: Rethinking Supervision in Radar-Camera Depth Completion</p>
 
 <p align=center>Huadong Li<sup>*</sup>, Minhao Jing<sup>*</sup>, Jing Wang, Shichao Dong, Jiajun Liang, Haoqiang Fan, Renhe Ji<sup>‡</sup> </p>
 
