@@ -37,22 +37,55 @@ The **Disruption** part aims to deliberately disrupt the learning of LiDAR distr
 Extensive experimental results demonstrate that by reducing the impact of LDL, our framework with **sparse supervision** outperforms the state-of-the-art **dense supervision** methods with **11.6%** improvement in Mean Absolute Error (MAE) and **1.6** speedup in Frame Per Second (FPS). -->
 
 
-## Demo Results
-
-Coming soon.
-
 ## Preparation
 
-Coming soon.
+* Environment
+
+   * Detailed environment settings should be found with requirements.txt
+
+```
+pip3 install -r requirements.txt
+```
+
+* Dataset
+   * Download the dataset files at [Google Drive](https://drive.google.com/drive/folders/1t6x9UEzbxejbac0dFT1CQSoVhzeEhIC4?usp=drive_link). 
+   * It's worth noting that Google Drive only contains a minimized version of the nuScenes dataset, which includes annotations for the Camera Front, Radar Front, and Lidar Top. If you wish to utilize more extensive nuScenes data, such as multi-frame Radar or multi-frame Lidar, please visit the  [Official Nuscneses Website](https://www.nuscenes.org/nuscenes) to download the full dataset.
+   
+```
+-  data
+  - nuscenes_radar_5sweeps_infos_test.pkl
+  - nuscenes_radar_5sweeps_infos_train.pkl
+  - nuscenes_radar_5sweeps_infos_val.pkl
+  - nuscenes
+     - samples.tar
+     - seg_mask.tar
+
+cd data/nuceneses
+tar xvf samples.tar
+tar xvf seg_mask.tar
+```
+
+* Pretrained weights
+
+   * Please Download our pretrained weights on [Google Drive](https://drive.google.com/drive/folders/1JgwLZ2ALgpJ9OSgpRBuKjAOvUVTRUo-q?usp=sharing).
+
+```
+mkdir checkpoints & cd checkpoints
+mv model.ckpt ./chekpoints/model.ckpt
+```
 
 ## Training
+ 
+```
+OMP_NUM_THREADS=4 torchrun --nproc_per_node ${GPU Nums} train_DDP.py
+```
 
-Coming soon.
 
+## Eval
 
-## Inference
-
-Coming soon.
+```
+python3 eval.py -m ./checkpoints/model.ckpt
+```
 
 
 ## BibTeX
