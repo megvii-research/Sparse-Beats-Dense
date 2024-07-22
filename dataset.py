@@ -2,7 +2,9 @@ import os
 import cv2
 import numpy as np
 import pickle
+import scipy
 from PIL import Image
+import xml.etree.ElementTree as ET
 
 import torch
 import torchvision.transforms.functional as TF
@@ -133,6 +135,15 @@ class Vidar(torch.utils.data.Dataset):
             
         inds = (lidar[:, 2] > conf.min_depth) & (lidar[:, 2] < conf.max_depth)
         lidar = lidar[inds]
+        
+        # Filter out the Lidar point cloud with overlapping near and far depth
+        uvs, depths = lidar[:, :2], lidar[:, -1]
+        tree = scipy.spatial.KDTree(uvs)
+        res = tree.query_ball_point(uvs, conf.query_radius)
+        filter_mask = np.array([
+            (depths[i] - min(depths[inds])) / depths[i] > 0.1
+            for i, inds in enumerate(res)])
+        lidar[filter_mask] = 0
         lidar = get_depth_map(lidar[:, :3], img.shape[:2])
         
         inds = canvas_filter(radar[:, :2], img.shape[:2])

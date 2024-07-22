@@ -19,6 +19,9 @@
   <br>
 </div>
 
+## News
+
+- **[🔥🔥🔥 2024.07.18]** Code is released.
 
 ## Overview
 
