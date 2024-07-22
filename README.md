@@ -48,8 +48,8 @@ pip3 install -r requirements.txt
 ```
 
 * Dataset
-   * Download the dataset files at [Google Drive](https://drive.google.com/drive/folders/1t6x9UEzbxejbac0dFT1CQSoVhzeEhIC4?usp=drive_link). 
-   * It's worth noting that Google Drive only contains a minimized version of the nuScenes dataset, which includes annotations for the Camera Front, Radar Front, and Lidar Top. If you wish to utilize more extensive nuScenes data, such as multi-frame Radar or multi-frame Lidar, please visit the  [Official Nuscneses Website](https://www.nuscenes.org/nuscenes) to download the full dataset.
+   * Download the segmentaion masks files at [Google Drive](https://drive.google.com/drive/folders/1t6x9UEzbxejbac0dFT1CQSoVhzeEhIC4?usp=drive_link). 
+   * Please visit the [Official Nuscenes Website](https://www.nuscenes.org/nuscenes) to download the dataset.
    
 ```
 -  data
@@ -57,11 +57,10 @@ pip3 install -r requirements.txt
   - nuscenes_radar_5sweeps_infos_train.pkl
   - nuscenes_radar_5sweeps_infos_val.pkl
   - nuscenes
-     - samples.tar
+     - samples
      - seg_mask.tar
 
 cd data/nuceneses
-tar xvf samples.tar
 tar xvf seg_mask.tar
 ```
 
