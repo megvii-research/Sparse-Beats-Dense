@@ -51,7 +51,7 @@ pip3 install -r requirements.txt
 ```
 
 * Dataset
-   * Download the segmentaion masks files at [Google Drive](https://drive.google.com/drive/folders/1t6x9UEzbxejbac0dFT1CQSoVhzeEhIC4?usp=drive_link). 
+   * Download the segmentaion masks files at [Google Drive](https://drive.google.com/drive/folders/1t6x9UEzbxejbac0dFT1CQSoVhzeEhIC4?usp=sharing)
    * Please visit the [Official Nuscenes Website](https://www.nuscenes.org/nuscenes) to download the dataset.
    
 ```
